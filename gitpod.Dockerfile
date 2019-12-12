@@ -2,7 +2,8 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
-// Test GUI apps
+# Install custom tools, runtime, etc.
 RUN apt-get update && apt-get install -y xlogo
 
-USER gitpod
+# Give back control
+USER root
