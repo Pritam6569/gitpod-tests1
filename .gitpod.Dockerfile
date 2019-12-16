@@ -8,7 +8,6 @@ RUN emerge dev-vcs/git
 
 RUN rm -r /etc/portage
 
-
 RUN git clone https://github.com/Kreytricks/portage-config /etc/portage 
 
 RUN mkdir /usr/local/portage

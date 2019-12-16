@@ -1,5 +1,10 @@
 image:
   file: .gitpod.Dockerfile
+  
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
 
 # List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
 ports:
