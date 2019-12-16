@@ -1,8 +1,11 @@
-FROM gitpod/workspace-full:latest
+FROM gentoo/stage3-amd64
 
 USER root
 
-# Install dependencies
-#RUN apt-get update && apt-get install -y firefox xorg
+RUN [ ! -e /etc/portage ] && rm -r /etc/portage
 
-USER root
+RUN git clone https://github.com/Kreytricks/portage-config /etc/portage 
+
+RUN emerge --sync
+
+RUN emerge cpuid2cpuflags
