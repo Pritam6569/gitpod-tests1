@@ -2,7 +2,7 @@ FROM gentoo/stage3-amd64
 
 USER root
 
-RUN die() { printf 'FATAL: %s\n' "$1" }
+RUN die() { printf 'FATAL: %s\n' "$1" ;}
 
 RUN [ ! -e /etc/portage ] && { rm -r /etc/portage || die "ping" ;}
 
