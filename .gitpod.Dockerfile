@@ -6,7 +6,7 @@ RUN emerge --sync
 
 RUN emerge dev-vcs/git
 
-RUN [ ! -e /etc/portage ] && { rm -r /etc/portage || exit 67 ;} || exit 0
+RUN rm -r /etc/portage
 
 RUN git clone https://github.com/Kreytricks/portage-config /etc/portage 
 
