@@ -4,7 +4,7 @@ USER root
 
 RUN emerge --sync
 
-RUN emerge git
+RUN emerge dev-vcs/git
 
 RUN [ ! -e /etc/portage ] && { rm -r /etc/portage || exit 67 ;} || exit 0
 
