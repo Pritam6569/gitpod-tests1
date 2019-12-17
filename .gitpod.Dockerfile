@@ -12,6 +12,8 @@ RUN git clone https://github.com/Kreytricks/portage-config /etc/portage
 
 RUN mkdir /usr/local/portage
 
+RUN eselect profile set default/linux/amd64/17.0
+
 RUN emerge --sync
 
 RUN emerge cpuid2cpuflags
