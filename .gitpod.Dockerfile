@@ -16,4 +16,4 @@ RUN eselect profile set default/linux/amd64/17.0
 
 RUN emerge --sync
 
-RUN emerge cpuid2cpuflags
+#RUN emerge cpuid2cpuflags
