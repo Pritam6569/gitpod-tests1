@@ -35,7 +35,7 @@ USER root
 RUN apt install -y golang pandoc
 RUN mkdir /opt/go
 RUN chown gitpod:gitpod /opt/go
-Compile and install
+# Compile and install
 USER gitpod
 ENV GOPATH="/opt/go"
 RUN go get github.com/mrtazz/checkmake
