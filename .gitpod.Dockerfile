@@ -25,9 +25,9 @@ RUN apt install -y vmdb2
 RUN brew install shfmt
 
 # Install Markdownlint (https://github.com/DavidAnson/markdownlint)
-RUN npm install markdownlint --save-dev
+RUN npm install markdownlint -g
 
-## Get linting for Markdown
+## Get linting for Makefile
 # Get dependencies
 RUN apt install -y golang pandoc
 RUN mkdir /opt/go
