@@ -13,8 +13,7 @@ ports:
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
-- init: echo 'init script' # runs during prebuild
-  command: echo 'start script'
+- init: go get github.com/mrtazz/checkmake" && make -C "$GOPATH/src/github.com/mrtazz/checkmake" && make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
 
 vscode:
   extensions:
