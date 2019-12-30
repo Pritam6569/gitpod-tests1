@@ -37,7 +37,7 @@ RUN mkdir /opt/go
 RUN chown gitpod:gitpod /opt/go
 # Compile and install
 USER gitpod
-ENV GOPATH="/opt/go"
+ENV GOPATH=/opt/go
 RUN go get github.com/mrtazz/checkmake
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
