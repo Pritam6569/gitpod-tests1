@@ -24,12 +24,6 @@ RUN apt install -y vmdb2
 # Install shfmt using brew since it's not yet exported for apt
 RUN brew install shfmt
 
-# Get linting for Markdown
-RUN apt install -y golang pandoc
-RUN go get github.com/mrtazz/checkmake
-RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
-RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
-
 # Install Markdownlint (https://github.com/DavidAnson/markdownlint)
 RUN npm install markdownlint --save-dev
 
@@ -38,6 +32,14 @@ RUN apt install -y golang pandoc
 RUN go get github.com/mrtazz/checkmake
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
+
+# Get linting for Markdown
+USER gitpod
+RUN apt install -y golang pandoc
+RUN go get github.com/mrtazz/checkmake
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
+USER root
 
 # Remove apt sources to clean up space
 RUN rm -rf /var/lib/apt/lists/*
