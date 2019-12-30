@@ -3,5 +3,4 @@ FROM gitpod/workspace-full-vnc:latest
 USER root
 
 ENV test=hello
-RUN [ "$test" != hello ] && exit 255
-RUN exit 0
+RUN if [ "$test" != hello ]; then exit 255; elif [ "$test" != hello ]; then exit 0; fi
