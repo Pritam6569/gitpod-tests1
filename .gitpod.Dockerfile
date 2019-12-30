@@ -38,9 +38,9 @@ RUN chown gitpod:gitpod /opt/go
 Compile and install
 USER gitpod
  ENV GOPATH="/opt/go"
- RUN GOPATH="/workspace/go" go get github.com/mrtazz/checkmake
- RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake"
- RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
+ RUN go get github.com/mrtazz/checkmake
+ RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+ RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
 USER root
 
 # Remove apt sources to clean up space
