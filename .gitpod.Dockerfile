@@ -32,6 +32,7 @@ RUN npm install markdownlint --save-dev
 RUN apt install -y golang pandoc
 RUN mkdir /opt/go
 RUN chown gitpod:gitpod /opt/go
+RUN chown -R gitpod:gitpod /home/gitpod/.npm/_cacache/index-v5/
 # Compile and install
 USER gitpod
  ENV GOPATH=/opt/go
