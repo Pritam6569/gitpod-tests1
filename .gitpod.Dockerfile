@@ -9,6 +9,13 @@ RUN apt-get update
 RUN apt upgrade -y
 RUN apt dist-upgrade -y
 
+# Get linting for Markdown
+RUN apt install -y golang pandoc
+RUN go get github.com/mrtazz/checkmake
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
+RUN exit 26
+
 # Install build dependencies
 RUN apt install -y meson clang gcc git ninja-build bison autoconf fakeroot libcap-dev libfuse3-dev libtool pkg-config libcap-dev libattr1-dev uthash-dev gzip rsync autopoint uthash-dev
 
