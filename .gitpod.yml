@@ -1,5 +1,5 @@
-image: gentoo/stage3-amd64
-#  file: .gitpod.Dockerfile
+image:
+  file: .gitpod.Dockerfile
   
 github:
   prebuilds:
