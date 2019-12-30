@@ -31,13 +31,14 @@ RUN npm install markdownlint-cli -g
 
 ## Get linting for Markdown
 # Get dependencies
+USER root
 RUN apt install -y golang pandoc
-# Compile and install
-# USER gitpod
-#  RUN GOPATH="/workspace/go" go get github.com/mrtazz/checkmake
-#  RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake"
-#  RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
-# USER root
+Compile and install
+USER gitpod
+ RUN GOPATH="/workspace/go" go get github.com/mrtazz/checkmake
+ RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+ RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
+USER root
 
 # Remove apt sources to clean up space
 RUN rm -rf /var/lib/apt/lists/*
