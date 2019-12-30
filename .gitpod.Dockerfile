@@ -35,11 +35,9 @@ RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
 
 # Get linting for Markdown
 RUN apt install -y golang pandoc
-USER gitpod
-RUN go get github.com/mrtazz/checkmake
-RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
-RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
-USER root
+RUN su gitpod -c "go get github.com/mrtazz/checkmake"
+RUN su gitpod -c "make -C $GOPATH/src/github.com/mrtazz/checkmake"
+RUN su gitpod -c "make -C $GOPATH/src/github.com/mrtazz/checkmake" install
 
 # Remove apt sources to clean up space
 RUN rm -rf /var/lib/apt/lists/*
