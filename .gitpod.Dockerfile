@@ -28,6 +28,7 @@ RUN brew install shfmt
 RUN apt install -y golang
 RUN go get github.com/mrtazz/checkmake
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
 
 # Install Markdownlint (https://github.com/DavidAnson/markdownlint)
 RUN npm install markdownlint --save-dev
