@@ -1,19 +1,39 @@
-FROM gentoo/stage3-amd64
+FROM gitpod/workspace-full-vnc:latest
 
 USER root
 
-#RUN emerge --sync
+# Update apt repositories
+RUN apt-get update
 
-#RUN emerge dev-vcs/git
+# Upgrade the image
+RUN apt upgrade -y
+RUN apt dist-upgrade -y
 
-#RUN rm -r /etc/portage
+# Install build dependencies
+RUN apt install -y meson clang gcc git ninja-build bison autoconf fakeroot libcap-dev libfuse3-dev libtool pkg-config libcap-dev libattr1-dev uthash-dev gzip rsync autopoint uthash-dev
 
-#RUN git clone https://github.com/Kreytricks/portage-config /etc/portage 
+# Install test dependencies
+RUN apt install -y cppcheck indent shellcheck 
 
-#RUN mkdir /usr/local/portage
+# Install QEMU and it's deps 
+RUN apt install -y --install-recommends qemu-kvm qemu virt-manager
 
-#RUN eselect profile set default/linux/amd64/17.0
+# Install vmdb2 to get debian image
+RUN apt install -y vmdb2
 
-#RUN emerge --sync
+# Install shfmt using brew since it's not yet exported for apt
+RUN brew install shfmt
 
-#RUN emerge cpuid2cpuflags
+# Get linting for Markdown
+RUN apt install -y golang
+RUN go get github.com/mrtazz/checkmake
+RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
+
+# Install Markdownlint (https://github.com/DavidAnson/markdownlint)
+RUN npm install markdownlint --save-dev
+
+# Remove apt sources to clean up space
+RUN rm -rf /var/lib/apt/lists/*
+
+# Clean-up unneeded packages
+RUN apt autoremove -y
