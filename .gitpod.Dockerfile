@@ -26,6 +26,7 @@ RUN brew install shfmt
 
 # Install Markdownlint-cli (https://github.com/igorshubovych/markdownlint-cli)
 RUN apt install -y npm
+USER gitpod
 RUN npm install -g markdownlint-cli
 
 ## Get linting for Markdown
