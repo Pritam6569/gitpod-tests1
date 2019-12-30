@@ -33,8 +33,11 @@ RUN npm install markdownlint-cli -g
 # Get dependencies
 USER root
 RUN apt install -y golang pandoc
+RUN mkdir /opt/go
+RUN chown gitpod:gitpod /opt/go
 Compile and install
 USER gitpod
+ ENV GOPATH="/opt/go"
  RUN GOPATH="/workspace/go" go get github.com/mrtazz/checkmake
  RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake"
  RUN GOPATH="/workspace/go" make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
