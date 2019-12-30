@@ -42,10 +42,7 @@ RUN go get github.com/mrtazz/checkmake
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake"
 RUN make -C "$GOPATH/src/github.com/mrtazz/checkmake" install
 USER root
-RUN if ! command -v checkmake >/dev/null; then \
-if [ -f "$GOPATH/src/github.com/mrtazz/checkmake/checkmake" ]; then \
-  cp "$GOPATH/src/github.com/mrtazz/checkmake/checkmake" /usr/bin/checkmake || exit 1
-;fi;fi
+RUN if ! command -v checkmake >/dev/null; then if [ -f "$GOPATH/src/github.com/mrtazz/checkmake/checkmake" ]; then cp "$GOPATH/src/github.com/mrtazz/checkmake/checkmake" /usr/bin/checkmake || exit 1 ;fi;fi
 
 # Remove apt sources to clean up space
 RUN rm -rf /var/lib/apt/lists/*
