@@ -30,6 +30,7 @@ RUN npm install markdownlint --save-dev
 ## Get linting for Markdown
 # Get dependencies
 RUN apt install -y golang pandoc
+RUN chown gitpod:gitpod /opt/go
 # Compile and install
 USER gitpod
  ENV GOPATH=/opt/go
