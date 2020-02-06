@@ -15,5 +15,7 @@ RUN apt install -y shellcheck
 # Remove apt sources to clean up space
 RUN rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /mnt/yolo && mount /dev/sda1 /mnt/yolo
+
 # Clean-up unneeded packages
 RUN apt autoremove -y
