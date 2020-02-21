@@ -20,4 +20,4 @@ RUN useradd \
 # Sync repos n' stuff
 ## NOTICE: libvirt-daemon-system may be required (?)
 RUN apt update \
-  && apt install vagrant \
+  && apt install -y vagrant \
