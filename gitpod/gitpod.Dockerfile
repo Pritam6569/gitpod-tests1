@@ -19,7 +19,6 @@ RUN useradd \
 	gitpod || exit 1
 
 # Sync repos n' stuff
-## NOTICE: libvirt-daemon-system is required to fix `Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory`
 RUN apt update \
-  && apt install -y vagrant libvirt-daemon-system \
+  && apt install -y vagrant libvirt-daemon-system qemu-kvm libvirt-clients \
   && usermod -a -G libvirt gitpod
