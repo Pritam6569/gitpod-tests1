@@ -7,4 +7,6 @@ USER root
 
 # https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-18-04/
 RUN apt update \
-  && apt install -y vagrant vagrant-libvirt
+  && curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb \
+  && apt install ./vagrant_2.2.6_x86_64.deb \
+  && apt install -y vagrant-libvirt
