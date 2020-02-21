@@ -1,5 +1,7 @@
 FROM debian:latest
 
+# FIXME: Outputs `gitpod@ws-ce281d58-997b-44b8-9107-3f2da7feede3:/workspace/gitpod-tests1$` in terminal
+
 # To avoid bricked workspaces (https://github.com/gitpod-io/gitpod/issues/1171)
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -15,8 +17,7 @@ RUN useradd \
 	--password gitpod \
 	gitpod || exit 1
 
-# # https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-18-04/
-# RUN apt update \
-#   && curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb \
-#   && apt install ./vagrant_2.2.6_x86_64.deb \
-#   && apt install -y vagrant-libvirt
+# Sync repos n' stuff
+## NOTICE: libvirt-daemon-system may be required (?)
+RUN apt update \
+  && apt install vagrant \
