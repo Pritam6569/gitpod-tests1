@@ -8,6 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 USER root
 
 ENV LANG=en_US.UTF-8
+ENV LC_ALL=C
 
 # Add 'gitpod' user
 RUN useradd \
