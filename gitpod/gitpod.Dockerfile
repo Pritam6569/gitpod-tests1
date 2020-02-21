@@ -22,4 +22,4 @@ RUN useradd \
 ## NOTICE: libvirt-daemon-system is required to fix `Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory`
 RUN apt update \
   && apt install -y vagrant libvirt-daemon-system \
-  && usedmod -a -G libvirt gitpod
+  && usermod -a -G libvirt gitpod
