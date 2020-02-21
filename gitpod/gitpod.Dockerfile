@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full-vnc:latest
+FROM debian/latest
 
 # To avoid bricked workspaces (https://github.com/gitpod-io/gitpod/issues/1171)
 ARG DEBIAN_FRONTEND=noninteractive
@@ -7,13 +7,13 @@ USER root
 
 ENV LANG=en_US.UTF-8
 
-# # Add 'gitpod' user
-# RUN useradd \
-# 	--uid 33333 \
-# 	--create-home --home-dir /home/gitpod \
-# 	--shell /bin/bash \
-# 	--password gitpod \
-# 	gitpod || exit 1
+# Add 'gitpod' user
+RUN useradd \
+	--uid 33333 \
+	--create-home --home-dir /home/gitpod \
+	--shell /bin/bash \
+	--password gitpod \
+	gitpod || exit 1
 
 # # https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-18-04/
 # RUN apt update \
