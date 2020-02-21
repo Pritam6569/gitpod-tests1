@@ -11,5 +11,5 @@ USER root
 #   && apt install ./vagrant_2.2.6_x86_64.deb \
 #   && apt install -y vagrant-libvirt
 
-RUN apt update \
+RUN brew update \
   && brew install Vagrant
