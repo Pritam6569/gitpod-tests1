@@ -12,4 +12,4 @@ USER root
 #   && apt install -y vagrant-libvirt
 
 RUN apt update \
-  && brew install vagrant
+  && brew install Vagrant
