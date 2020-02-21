@@ -5,8 +5,11 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
 
-# https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-18-04/
+# # https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-18-04/
+# RUN apt update \
+#   && curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb \
+#   && apt install ./vagrant_2.2.6_x86_64.deb \
+#   && apt install -y vagrant-libvirt
+
 RUN apt update \
-  && curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb \
-  && apt install ./vagrant_2.2.6_x86_64.deb \
-  && apt install -y vagrant-libvirt
+  && brew install vagrant
