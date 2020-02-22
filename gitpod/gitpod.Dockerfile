@@ -7,9 +7,6 @@ FROM debian:latest
 # To avoid bricked workspaces (https://github.com/gitpod-io/gitpod/issues/1171)
 ARG DEBIAN_FRONTEND=noninteractive
 
-
-RUN [ "$USER" = root ] && edit 1
-
 USER root
 
 ENV LANG=en_US.UTF-8
