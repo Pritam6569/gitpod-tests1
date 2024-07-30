@@ -22,5 +22,5 @@ RUN useradd \
 
 # Sync repos n' stuff
 RUN apt update \
-  && apt install -y vagrant libvirt-daemon-system qemu-kvm libvirt-clients \
+  && apt install -y vagrant libvirt-daemon-system git qemu-kvm libvirt-clients \
   && usermod -a -G libvirt gitpod
