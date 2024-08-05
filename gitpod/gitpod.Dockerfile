@@ -19,6 +19,7 @@ RUN useradd \
 	--shell /bin/bash \
 	--password gitpod \
 	gitpod || exit 1
+RUN apt-get update && apt-get install -y git
 
 # Sync repos n' stuff
 RUN apt update \
